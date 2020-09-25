@@ -34,7 +34,7 @@ import Geocoder from '@pderas/vue2-geocoder';
 Vue.use(VueGeolocation);
 Vue.use(VueGoogleMaps, {
     load: {
-        key: 'AIzaSyDc4WfWqpQBfXZHBElPnisHI-SHrrKUNi8'
+        key: ''
     },
     installComponents: false
 });
@@ -44,7 +44,7 @@ Vue.use(Geocoder, {
     defaultCountryCode: 'FR',
     defaultLanguage: 'en',
     defaultMode: 'address',
-    googleMapsApiKey: 'AIzaSyDc4WfWqpQBfXZHBElPnisHI-SHrrKUNi8'
+    googleMapsApiKey: ''
 });
 
 // Turn off production warning messages
