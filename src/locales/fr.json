@@ -1,0 +1,404 @@
+{
+    "config": {
+        "messages": {
+            "socialProviders": {
+                "cannotUnbind": "Avant de désactiver le fournisseur créez un mot de passe local"
+            },
+            "sessionExpired": "La session a expirée; redirection vers la page de login..."
+        }
+    },
+    "common": {
+        "form": {
+            "submit": "Soumettre",
+            "agree": "J'accepte",
+            "logo": "logo",
+            "signUp": "S'enregistrer",
+            "cancel": "Annuler",
+            "saveChanges": "Enregistrer les modifications",
+            "edit": "Modifier",
+            "save": "Enregistrer",
+            "remove": "Retirer",
+            "confirm": "Confirmer",
+            "close": "Fermer",
+            "okay": "OK",
+            "new": "Nouvelle/Nouveau",
+            "yes": "Oui",
+            "no": "Non",
+            "delete": "Supprimer",
+            "reset": "Remettre à zéro",
+            "loading": "Chargement"
+        },
+        "placeholders": {
+            "password": "Mot de passe",
+            "retypePassword": "Resaisissez le mode passe",
+            "emailAddress": "Adresse email"
+        },
+        "user": {
+            "profile": {
+                "updateSuccess": "Profile mis à jour."
+            },
+            "sharing": {
+                "shareSuccess": "Partagez votre ressource.",
+                "unshareSuccess": "Ne plus partager votre ressource.",
+                "modifySuccess": "Partage modifié avec succès",
+                "requestAllowedSuccess": "Access granted",
+                "requestDeniedSuccess": "Access denied"
+            },
+            "kba": {
+                "description": "Sélectionnez une/des question(s) de sécurité ci-dessous. Ces questions nous permettront de vérifier votre identité si vous oubliez votre mot de passe.",
+                "selectQuestion": "Sélectionnez une question de sécurité...",
+                "custom": "Saisissez une question personnalisée :",
+                "question": "Question",
+                "answer": "Réponse",
+                "saveQuestions": "Enregistrer les questions",
+                "submitAnswers": "Vérifier la réponse | Vérifier les réponses",
+                "notUnique": "Les questions personnalisées ne peuvent être en double"
+            }
+        },
+        "policyValidationMessages": {
+            "VALID_PHONE_FORMAT": "Doit être un numéro de téléphone valide",
+            "VALID_NAME_FORMAT": "Must have valid name characters",
+            "CANNOT_CONTAIN_CHARACTERS": "Ne peut pas contenir les caractères : %{forbiddenChars}",
+            "IS_NUMBER": "Doit être un nombre plus grand que zéro.",
+            "IS_NUMBER_GREATER_ZERO": "Doit être un nombre plus grand ou égal à 1.",
+            "REQUIRED": "Ne peut pas sêtre vide",
+            "VALID_DATE": "Doit être une date valide",
+            "VALID_TYPE": "Doit être de l'un de types suivants : %{validTypes}. Ne peut pas être de type %{invalidType}",
+            "MATCH_REGEXP": "Doit correspondre au motif : %{regexp}",
+            "PRIVILEGE_AT_LEAST_ONE_ATTRIBUTE_READONLY_FALSE": "Au moins l'un des attributs doit être en lecture/écriture",
+            "PRIVILEGE_MUST_CONTAIN_CREATE_OR_UPDATE_PERMISSION": "Doit avoir au moins des droits en création ou en mise à jour",
+            "MIN_LENGTH": "Doit être long d'au moins %{minLength} caractères",
+            "AT_LEAST_X_CAPITAL_LETTERS": "Doit avoir au moins %{numCaps} lettre(s) en majuscule",
+            "AT_LEAST_X_NUMBERS": "Doit avoir au moins %{numNums} chiffre(s)",
+            "CANNOT_CONTAIN_OTHERS": "Ne doit pas avoir de texte en commun avec les champs %{disallowedFields}",
+            "VALID_EMAIL_ADDRESS_FORMAT": "Forat de mail invalide (example@example.com)",
+            "UNIQUE": "%{property} doit être unique",
+            "VALID_USERNAME": "Identifiant non valide",
+            "IS_NEW": "Ne doit pas avoir la même valeur que les %{historyLength} mot(s) de passe précédent(s)",
+            "test": "succeed",
+            "policyServiceError": {
+                "registration": "Impossible de s'enregistrer. Veuillez essayer plus tard.",
+                "reset": "Impossible de réinitialiser votre mot de passe. Veuillez essayer plus tard."
+            },
+            "successMessages": {
+                "password": "Votre mot de passe est sécurisé !"
+            },
+            "policyValidationFailed": "Echec de la validation des attributs suivants '%{property}'"
+        }
+    },
+    "pages": {
+        "app": {
+            "profile": "Profile",
+            "dashboard": "Tableau de bord",
+            "sharing": "Partages",
+            "user": "Utilisateur",
+            "admin": "Administration",
+            "signOut": "Déconnexion",
+            "notifications": {
+                "noNotifications": "Pas de notification",
+                "title": "Notifications",
+                "clearAll": "Vider",
+                "removedAll": "Supprimer toutes les notifications",
+                "removed": "Supprimer la notification",
+                "failedToRemove": "Echec lors de la suppression",
+                "failedToClear": "Echec lors de la suppression"
+            }
+        },
+        "notFound": {
+            "couldNotFind": "La page à laquelle vous souhaitez accéder n'existe pas.",
+            "returnToDashboard": "Retour au tableau de bord"
+        },
+        "dashboard": {
+            "noWidget": "Pas de Widgets disponible",
+            "noWidgetSubText": "Vous pouvez accéder à votre <a href=\"#/profile\">profile</a>.",
+            "widgets": {
+                "welcome": {
+                    "greeting": "Bonjour",
+                    "welcomeMessage": "Cette interface vous permet de gérer vos informations personnelles et de sécurité et également d'administrer la plateforme si vous êtes un administrateur.",
+                    "editProfile": "Modifier votre profile"
+                }
+            }
+        },
+        "login": {
+            "username": "Identifiant",
+            "password": "Mot de passe",
+            "signIn": "Connexion",
+            "newHere": "Nouveau ici ?",
+            "createAccount": "Créer un compte",
+            "badPassword": "Identifiant ou mot de passe non valide.",
+            "weCanHelp": "Nous pouvons vous aider",
+            "recoverPassword": "Récupérer votre mot de passe.",
+            "recoverUsername": "Récupérer votre Identifiant.",
+            "forgotUsername": "Identifiant oublié ?",
+            "forgotPassword": "Mot de passe oublie ?"
+        },
+        "selfservice": {
+            "signIn": "Connexion",
+            "captchaError": "Le ReCaptcha est mal configuré - contactez votre administrateur.",
+            "headers": {
+                "username": {
+                    "title": "Récupérer votre Identifiant",
+                    "description": "Vous pouvez récupérer votre Identifiant en le recevangt sur l'adresse email associée à votre compte."
+                },
+                "reset": {
+                    "title": "Réinitialiser votre mot de passe",
+                    "description": "Protection anti-robot",
+                    "emailSent": "Un email vous a été envoyé avec les actions à suivre pour réinitialiser votre mot de passe."
+                }
+            },
+            "registration": {
+                "signUp": "S'enregistrer",
+                "haveAccount": "Vous avez déjà un compte ?",
+                "signIn": "Connexion",
+                "signUpMsg": "S'enregisrtrer et simple et rapide.",
+                "createdAccount": "Le compte a été créé.",
+                "pleaseComplete": "Veuillez compléter le formulaire d'enregistrement",
+                "termsAndConditions": {
+                    "title": "Conditions Générales",
+                    "singlePage": "En cliquant sur \"S'enregistrer\" vous acceptez nos "
+                },
+                "userDetails": {
+                    "userName": "translated Name"
+                },
+                "consent": {
+                    "title": "Confidentialité et consentement",
+                    "agreement": "J'accepte"
+                },
+                "emailValidation": "Un email a été envoyé à l'adresse que vous avez saisie. Cliquez sur le lien dans le mail pour continuer.",
+                "completeRegistration": "Enregistrement terminé",
+                "stageTitle": {
+                    "captcha": "Vérifie que vous êtes un humain",
+                    "consent": "",
+                    "emailValidation": "",
+                    "kbaSecurityAnswerDefinitionStage": "Créer les questions de sécurité",
+                    "termsAndConditions": ""
+                },
+                "stageSubtitle": {
+                    "captcha": "Les robots ne sont pas autorisés",
+                    "consent": "",
+                    "emailValidation": "",
+                    "kbaSecurityAnswerDefinitionStage": "",
+                    "termsAndConditions": ""
+                }
+            },
+            "accountClaiming": {
+                "title": "Vous avez éjà un compte",
+                "passwordDesc": "Pour continuer, connectez-vous avec vor email <strong>{account}</strong> pour lier les comptes.",
+                "socialDesc": "Pour cnotinuer, connectez-vous à votre compte {providers} pour lier les comptes.",
+                "link": "Lier les comptes",
+                "return": "Retour à la connexion",
+                "linked": "Comptes liés",
+                "error": "Impossible de lier les comptes"
+            },
+            "forgotUsername": {
+                "advanceStageButtonText": "Récupérer son Identifiant",
+                "yourUsername": "Votre Identifiant est",
+                "unableToRetrieve": "Impossible de récupérer votree Identifiant",
+                "tryAgain": "Essayer de trouver votre Identifiant de nouveau",
+                "emailSent": "Un email contenant votre Identifiant vous a été envoyé."
+            },
+            "passwordReset": {
+                "userQuery": "Saisissez un email pour récupérer les détails de votre compte",
+                "advanceStageButtonText": "Récupérer un compte",
+                "tryAgain": "Tenter de récupérer votre mot de passe de nouveau",
+                "errorMessage": "Erreur lors de la réinitialisation du votre mot de passeError resetting your password",
+                "successMessage": "Votre mot de passe a éré réinitialisé.",
+                "newPassword": "Nouveau mot de passe",
+                "changePassword": "Changer de mot de passe",
+                "kbaVerificationStageDescription": "Vérifier votre identité en répondant aux questions de sécurité"
+            },
+            "progressiveProfile": {
+                "skipThis": "Passer"
+            },
+            "social": {
+                "signIn": "Se connecter avec",
+                "signUp": "S'enregistrer avec",
+                "or": "ou"
+            }
+        },
+        "profile": {
+            "editPersonalInfo": "Modifier les informations personnelles",
+            "settings": "Réglages",
+            "entitlements": "Accès",
+            "activity": "Activité",
+            "accountControls": {
+                "title": "Controles de votre compte",
+                "subtitle": "Téléchargez les données de votre compte ou supprimez votre compte.",
+                "deleteTitle": "Effacer votre compte",
+                "deleteSubtitle": "Effacer définitivement votre compte.",
+                "deleteAccount": "Effacer le compte",
+                "deleteModalTitle": "Effacer le compte",
+                "deleteModalHeader": "Veuillez lire ceci attentivement.",
+                "deleteModalDetails": "Vous essayez de supprimer le compte qui vous donnes accès aux différents services. Vous ne pourrez plus vous accéder à nos services and toutes les ddonnées de compte seront perdues.",
+                "deleteModalDownload1": "Vous pouvez",
+                "deleteModalDownload2": "télécharger vos données",
+                "deleteModalDownload3": "avant de supprimer votre compte.",
+                "deleteModalContentList": "Les élémeents suivants seront effacés.",
+                "deleteModalContentListItem": "Accéder à votre profile",
+                "deleteModalAcceptMessage": "Oui, Je souhaite effacer définitivement mon compte",
+                "deleteModalButton": "Effacer le compte",
+                "deleteAccountSuccessful": "Compte supprimé avec succès.",
+                "downloadTitle": "Télécharger vos données",
+                "downloadSubtitle": "Télécharger les données de votre compte.",
+                "downloadLink": "Télécharger"
+            },
+            "preferences": {
+                "title": "Préférences",
+                "subtitle": "Définissez vos préférences."
+            },
+            "oauthApplications": {
+                "title": "Applications autorisées",
+                "subtitle": "Ces applications peuvent accéder à votre compte.",
+                "removeConfirmation": "Etes-vous certain de vouloir retirer \"{applicationName}\" de la liste de vos applications autorisées ?",
+                "removeSuccess": "L'application \"{applicationName}\" a été retirée avec succès.",
+                "expires": "Expire : ",
+                "never": "Jamais",
+                "noApplications": "Pas d'application autorisée"
+            },
+            "wortenApplications": {
+                "title": "Applications autorisées",
+                "subtitle": "Ces applications peuvent accéder à votre compte.",
+                "removeConfirmation": "Etes-vous certain de vouloir retirer \"{applicationName}\" de la liste de vos applications autorisées ?",
+                "removeSuccess": "L'application \"{applicationName}\" a été retirée avec succès.",
+                "expires": "Expire : ",
+                "never": "Jamais",
+                "noApplications": "Pas d'application autorisée"
+            },
+            "trustedDevices": {
+                "title": "Appareils de confiance",
+                "subtitle": "Appareils avec les lesquels vous vous êtes connecté.",
+                "removeConfirmation": "Etes-vous certain de vouloir retirer \"{deviceName}\" dde la liste de voos appareils de confiance ?",
+                "removeSuccess": "L'appareil \"{deviceName}\" a été retiré avec succès.",
+                "noDevices": "Pas d'appareil de confiance"
+            },
+            "editProfile": {
+                "userDetailsTitle": "Modifiez vos informations personnelles",
+                "failedProfileSave": "Echec lors de l'enregistrement du profile",
+                "optional": "(optional)",
+                "noFields": "Aucun champ disponible"
+            },
+            "accountSecurity": {
+                "title": "Sécurité du compte",
+                "invalidPassword": "Formulaire non valide",
+                "subtitle": "Mettez à jour votre mot de passe ou vos questions de sécurité.",
+                "password": "Mot de passe",
+                "securityQuestions": "Questions de sécurité",
+                "rememberPassword": "Vous ne vous souvenez pas de votre mot de passe actuel ?",
+                "resetPassword": "Réinitialiser votre mot de passe",
+                "savePassword": "Enregistrer votre mot de passe",
+                "custom": "Personnalisé",
+                "currentPassword": "Mot de passe actuel",
+                "newPassword": "Nouveau mot de passe"
+            },
+            "consent": {
+                "allow": "Accepter",
+                "allowConsentHeader": "Donner accès",
+                "accessType": "Type d'accès",
+                "accountAccess": "Accès de compte",
+                "authorized": "Autorisé",
+                "confirmDeny": "<strong>{mappingName}</strong> n'aura plus accès à vos données.",
+                "deny": "Refuser",
+                "denyConsentHeader": "Refuser l'accès",
+                "notAuthorized": "Non autorisé",
+                "subtitle": "Controlez le partage de vos données avec des tiers.",
+                "title": "Partage de données personnelles"
+            },
+            "socialSignIn": {
+                "title": "Connexion \"Sociale\"",
+                "subtitle": "Connectez vous en utilisant un compte \"Social\".",
+                "disconnect": "Déconnexion",
+                "disconnectConfirmMsg": "Vous vous déconnectez, vous ne pourrez plus vous connecter avec {provider}.",
+                "connect": "Connecter",
+                "sharing": "Vous partagez",
+                "linkedAccount": "Comptes liés"
+            },
+            "location": {
+                "title": "Ma position"
+            }
+        },
+        "uma": {
+            "activity": {
+                "Authorisation_Granted": "Vous avez créé",
+                "Authorisation_Requested": "{requestingParty} a demandé l'accès à",
+                "Authorisation_Request_Denied": "Vous avez refusé la de d'accès de {requestingParty}",
+                "Authorisation_Request_Approved": "Vous avez approuvé la demande d'accès de {requestingParty}",
+                "Policy_Created": "Vous partagez",
+                "Policy_Updated": "Vous avez mis à jour la configuration du partage pour "
+            },
+            "resources": {
+                "noDataState": "Vous ne partagez rien.",
+                "search": "Chercher...",
+                "viewAs": "Comme comme",
+                "list": "Liste",
+                "grid": "Grille",
+                "cancel": "Annuler",
+                "share": "Partager",
+                "unshare": "Ne plus partager",
+                "unshareAll": "Ne plus rien partager",
+                "shareWith": "Partager avec...",
+                "resourceNotShared": "Ressource non partagée",
+                "sharedWithPeople": "Partagé avec {numberOf} personnes",
+                "sharedWithPerson": "Partagé avec 1 personne",
+                "warningMessage": "Partage désactivé. Vous aurez toujours une copie.",
+                "unshareResource": "Ne plus partager \"{resourceName}\" ?",
+                "sameShareError": "Impossible de partager de nouveau avec {requestingParty}. Ne partagez plus puis faites vos réglages avant de pouvoir repartager",
+                "noRequestingParty": "No requesting party defined."
+            },
+            "requests": {
+                "allow": "Approuover",
+                "deny": "Refeter",
+                "allowed": "Approuvé",
+                "denied": "Refusé",
+                "requestedAccess": "a demandé l'accès à :"
+            },
+            "notifications": {
+                "requests": "Demandes"
+            }
+        },
+        "access": {
+            "password": "Mot de passe",
+            "noFields": "Aucun champ disponible",
+            "successCreate": "{resource} créé(e) avec succès",
+            "successAdded": "{resource} ajouté(e) avec succès",
+            "successRemoved": "{resource} supprimé(e) avec succès",
+            "typeSearch": "Chercher",
+            "invalidCreate": "Formulaire de création non valide",
+            "deleteResource": "Objet supprimé avec succès",
+            "deleteConfirm": "Voulez-vous vraiment supprimer ceci ",
+            "deleteModalTitle": "Confirmez la suppression",
+            "removeConfirm": "Vous-vous vraiment retirer les éléments sélectionnés",
+            "removeModalTitle": "Confirmez la suppression",
+            "noAvailableProperties": "Aucune propriété à moddifier",
+            "unableToEditResource": "Impossible de modifier {resource}",
+            "invalidEdit": "Formulaire de modification non valide",
+            "successEdited": "{resource} modifié(e) avec succès",
+            "details": "Détails",
+            "resetPassword": "Réinitialisation du mot de passe",
+            "failedSavePassword": "Echec lors de l'enregistrement du mot de passe",
+            "successSavePassword": "Mot de passe enregistré avec succès",
+            "search": "Saisissez pour faire une recherche sur les "
+        },
+        "workflow": {
+            "assign": "Assigner",
+            "assignTo": "Assigner à ",
+            "assignmentSuccess": "La {taskName} a été assignée avec succès à {assignee}",
+            "details": "Détails",
+            "myTasks": "Mes Tâches",
+            "noProcess": "Pas de taches en cours",
+            "noAssignedTasks": "Aucune tâche ne vous est assignée",
+            "noGroupTasks": "Votre groupe n'a pas de tâche",
+            "notAssigned": "Non assignée",
+            "processStartSuccessMessage": "Processus démarré",
+            "me": "Moi",
+            "requeue": "Requeue",
+            "start": "Démarrer",
+            "startProcess": "Démarrer un processus",
+            "taskSuccessfullyCompleted": "Tâche terminée avec succès",
+            "taskSuccessfullyRequeued": "{taskName} successfully requeued",
+            "taskNoLongerAvailable": "La tâche {taskName} a été supprimée par l'administrateur",
+            "unassignedTasks": "Tâches non assignées"
+        }
+    },
+    "user": "Utilisateur",
+    "Entity": "Entité"
+}

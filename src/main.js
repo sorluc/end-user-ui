@@ -28,6 +28,25 @@ import en from 'vee-validate/dist/locale/en.json';
 import * as rules from 'vee-validate/dist/rules';
 import Vue from 'vue';
 
+import VueGeolocation from 'vue-browser-geolocation';
+import * as VueGoogleMaps from 'vue2-google-maps';
+import Geocoder from '@pderas/vue2-geocoder';
+Vue.use(VueGeolocation);
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: 'AIzaSyDc4WfWqpQBfXZHBElPnisHI-SHrrKUNi8'
+    },
+    installComponents: false
+});
+Vue.component('google-map', VueGoogleMaps.Map);
+Vue.component('google-marker', VueGoogleMaps.Marker);
+Vue.use(Geocoder, {
+    defaultCountryCode: 'FR',
+    defaultLanguage: 'en',
+    defaultMode: 'address',
+    googleMapsApiKey: 'AIzaSyDc4WfWqpQBfXZHBElPnisHI-SHrrKUNi8'
+});
+
 // Turn off production warning messages
 Vue.config.productionTip = false;
 PromisePoly.polyfill();

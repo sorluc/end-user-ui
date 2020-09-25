@@ -301,7 +301,10 @@
                 "connect": "Connect",
                 "sharing": "You are sharing",
                 "linkedAccount": "Linked account"
-            }
+            },
+	    "location": {
+	    	"title" : "My location"
+	    }
         },
         "access": {
             "password": "Password",
