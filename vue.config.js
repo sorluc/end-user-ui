@@ -57,7 +57,7 @@ module.exports = {
         host: 'localhost',
         proxy: {
             '/openidm': {
-                target: 'http://localhost:8080/openidm',
+                target: 'http://am7.forgerock:8080/openidm',
                 pathRewrite: { '^/openidm': '' },
                 changeOrigin: true
             }
