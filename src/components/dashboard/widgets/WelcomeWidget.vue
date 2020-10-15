@@ -15,7 +15,7 @@ of the MIT license. See the LICENSE file for details.
             <div>
                 {{$t('pages.dashboard.widgets.welcome.welcomeMessage')}}
             </div>
-            <fr-map></fr-map>
+            <!--<fr-map></fr-map>-->
             <b-button @click="openProfile()" variant="primary" class="mt-2">
                 {{$t('pages.dashboard.widgets.welcome.editProfile')}}
             </b-button>
@@ -33,9 +33,9 @@ import _ from 'lodash';
 export default {
     name: 'Welcome-Widget',
     props: ['userDetails', 'widgetDetails'],
-    components: {
+    /* components: {
         'fr-map': () => import('@/components/profile/GeoLoc')
-    },
+    }, */
     data () {
         return {};
     },
