@@ -6,7 +6,7 @@ of the MIT license. See the LICENSE file for details.
 -->
 
 <template>
-    <b-jumbotron class="text-center">
+    <b-jumbotron class="text-center" style="padding: 0px !important">
         <template slot="header">
             <b-img :src="require('@/assets/images/profile-default.png')" rounded="circle" width="112" height="112" alt="img" class="m-1 mb-3" />
             <div>{{$t('pages.dashboard.widgets.welcome.greeting')}}, {{fullName}}</div>
@@ -15,7 +15,6 @@ of the MIT license. See the LICENSE file for details.
             <div>
                 {{$t('pages.dashboard.widgets.welcome.welcomeMessage')}}
             </div>
-            <!--<fr-map></fr-map>-->
             <b-button @click="openProfile()" variant="primary" class="mt-2">
                 {{$t('pages.dashboard.widgets.welcome.editProfile')}}
             </b-button>
@@ -32,10 +31,8 @@ import _ from 'lodash';
  **/
 export default {
     name: 'Welcome-Widget',
-    props: ['userDetails', 'widgetDetails'],
-    /* components: {
-        'fr-map': () => import('@/components/profile/GeoLoc')
-    }, */
+    props: ['userDetails', 'details'],
+    components: {},
     data () {
         return {};
     },
@@ -54,7 +51,6 @@ export default {
             } else {
                 fullName = this.userDetails.userId;
             }
-
             return fullName;
         }
     }

@@ -36,6 +36,7 @@ var coordinatesParis = { lat: 0, lng: 0 },
     };
 export default {
     name: 'GeoLoc',
+    props: ['userDetails', 'details'],
     data () {
         return {
             coordinates: coordinatesParis

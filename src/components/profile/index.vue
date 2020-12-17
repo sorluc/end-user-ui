@@ -23,7 +23,6 @@ of the MIT license. See the LICENSE file for details.
             <b-col lg="8">
                 <b-tabs content-class="mt-4">
                     <b-tab :title="$t('pages.profile.settings')" active>
-                        <!--<fr-map></fr-map>-->
                         <fr-account-security @updateProfile="updateProfile" @updateKBA="updateKBA"></fr-account-security>
                         <fr-social-identities v-if="$root.userStore.state.internalUser === false" :clientToken="clientToken" :linkedProvider="linkedProvider"></fr-social-identities>
                         <fr-preferences v-if="$root.userStore.state.internalUser === false" @updateProfile="updateProfile"></fr-preferences>
@@ -60,8 +59,6 @@ export default {
         'fr-preferences': () => import('@/components/profile/Preferences'),
         'fr-consent': () => import('@/components/profile/Consent'),
         'fr-social-identities': () => import('@/components/profile/SocialIdentities')
-        /*,
-        'fr-map': () => import('@/components/profile/GeoLoc') */
     },
     computed: {
         fullName () {

@@ -26,7 +26,9 @@ of the MIT license. See the LICENSE file for details.
 
 <script>
 import Welcome from '@/components/dashboard/widgets/WelcomeWidget';
+import Counters from '@/components/dashboard/widgets/Counter';
 import Workflow from '@/components/dashboard/widgets/WorkflowControlWidget';
+import GeoLoc from '@/components/dashboard/widgets/GeoLoc';
 
 /**
  * @description Controlling component for the dashboard, loads widgets set and configured in the ui-dashboard config file.
@@ -37,6 +39,8 @@ export default {
     name: 'Dashboard',
     components: {
         Welcome,
+        GeoLoc,
+        Counters,
         Workflow
     },
     data () {
