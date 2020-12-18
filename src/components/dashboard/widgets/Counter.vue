@@ -6,64 +6,16 @@ of the MIT license. See the LICENSE file for details.
 -->
 
 <template>
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Compteurs de X</h3>
-                            <VueJsCounter start="1900" end="1999" duration="500" thousand="" decimal=","></VueJsCounter>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Compteurs de Y</h3>
-                            <VueJsCounter end="1000000" thousand=""></VueJsCounter>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Compteurs de Z</h3>
-                            <VueJsCounter start="2020" end="1900" thousand=""></VueJsCounter>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Compteurs de X</h3>
-                            <VueJsCounter start="1900" end="1999" duration="500" thousand="" decimal=","></VueJsCounter>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Compteurs de Y</h3>
-                            <VueJsCounter end="1000000" thousand=""></VueJsCounter>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Compteurs de Z</h3>
-                            <VueJsCounter start="2020" end="1900" thousand=""></VueJsCounter>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div v-if="dataloaded" class="card">
+        <div class="card-body" style="text-align:center">
+            <h4>{{$t('pages.dashboard.widgets.counter.title')}} {{details}}</h4>
+            <VueJsCounter start="0" :end="count" duration="5000" thousand="" decimal=","></VueJsCounter>
+            {{$t('pages.dashboard.widgets.counter.description')}}
         </div>
     </div>
 </template>
 
 <script>
-import _ from 'lodash';
 import VueJsCounter from 'vue-js-counter';
 
 /**
@@ -71,35 +23,43 @@ import VueJsCounter from 'vue-js-counter';
  *
  **/
 export default {
-    name: 'Counters',
-    props: ['userDetails', 'details'],
+    name: 'Counter',
+    props: ['userDetails', 'details', 'url'],
     components: {
         VueJsCounter
     },
     data () {
-        return {};
+        return {
+            dataloaded: false,
+            deferedCount: '0'
+        };
     },
     mounted () {
-        console.log('THIS.$ROOT.USERsTORE.GETuSERsTATE()');
-        console.log(this.$root.userStore.getUserState());
-        console.log('THIS.$ROOT.USERsTORE.GETuSERsTATE()');
+        this.loadData();
     },
     methods: {
-        openProfile () {
-            this.$router.push({ name: 'Profile', params: { openProfile: !this.$root.userStore.state.internalUser } });
+        loadData () {
+            this.getRequestService().get(this.url)
+                .then(({ data }) => {
+                    this.displayNotification('message', 'Dataloaded for Counter ' + this.details);
+                    this.deferedCount = data.resultCount;
+                    this.dataloaded = true;
+                })
+                .catch((error) => {
+                    console.log(error.response.data);
+                    if (error.response.data.reason === 'Forbidden') {
+                        this.displayNotification('error', 'Your are not allowed to access ' + this.details + ' counter : ' + error.response.data.message);
+                        this.dataloaded = false;
+                    } else {
+                        this.displayNotification('warning', 'Counter not available: Problem to load data for ' + this.details + ' - Details: ' + error.response.data.message);
+                        this.dataloaded = true;
+                    }
+                });
         }
     },
     computed: {
-        fullName () {
-            let fullName = '';
-
-            if (this.userDetails.givenName.length > 0 || this.userDetails.sn.length > 0) {
-                fullName = _.startCase(this.userDetails.givenName + ' ' + this.userDetails.sn);
-            } else {
-                fullName = this.userDetails.userId;
-            }
-
-            return fullName;
+        count () {
+            return this.deferedCount;
         }
     }
 };

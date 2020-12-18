@@ -9,7 +9,7 @@ of the MIT license. See the LICENSE file for details.
     <b-container fluid>
         <b-row v-if="widgets.length">
             <div v-for="(widget, index) in widgets" :class="{'col-sm-4': widget.size === 'small', 'col-sm-6': widget.size === 'medium', 'col-sm-12': widget.size === 'large', 'mt-4': true}" :key="widget.type + index">
-                <component :is="widget.type" :userDetails="userDetails" :details="widget.details"></component>
+                <component :is="widget.type" :userDetails="userDetails" :details="widget.details" :url="widget.url"></component>
             </div>
         </b-row>
         <b-jumbotron v-else class="mt-4 text-center">
@@ -26,7 +26,8 @@ of the MIT license. See the LICENSE file for details.
 
 <script>
 import Welcome from '@/components/dashboard/widgets/WelcomeWidget';
-import Counters from '@/components/dashboard/widgets/Counter';
+import Counter from '@/components/dashboard/widgets/Counter';
+import Weather from '@/components/dashboard/widgets/Weather';
 import Workflow from '@/components/dashboard/widgets/WorkflowControlWidget';
 import GeoLoc from '@/components/dashboard/widgets/GeoLoc';
 
@@ -40,7 +41,8 @@ export default {
     components: {
         Welcome,
         GeoLoc,
-        Counters,
+        Counter,
+        Weather,
         Workflow
     },
     data () {
@@ -58,6 +60,7 @@ export default {
             this.getRequestService().get('config/ui/dashboard')
                 .then(({ data }) => {
                     this.widgets = data.dashboard.widgets;
+                    console.log(data);
 
                     if (this.$root.applicationStore.state.workflow) {
                         this.widgets.push({

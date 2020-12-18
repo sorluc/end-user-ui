@@ -116,6 +116,10 @@
                     "greeting": "Bonjour",
                     "welcomeMessage": "Cette interface vous permet de gérer vos informations personnelles et de sécurité et également d'administrer la plateforme si vous êtes un administrateur.",
                     "editProfile": "Modifier votre profile"
+                },
+                "counter" : {
+                    "title": "Compteurs de",
+                    "description": ""
                 }
             }
         },
