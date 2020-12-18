@@ -10,52 +10,32 @@ of the MIT license. See the LICENSE file for details.
         <div class="card-body">
             <div class="weather-date-location">
                 <h3>{{dayLong}}</h3>
-                <p class="text-gray"> <span class="weather-date">{{date}}</span> -  <span class="weather-location">Sydney, Australia</span> </p>
+                <p class="text-gray"> <span class="weather-date">{{date}}</span> -  <span class="weather-location">{{this.addressObj.city}}, {{this.addressObj.country}}</span> </p>
             </div>
             <div class="weather-data d-flex">
                 <div class="mr-auto">
-                    <h4 class="display-3">32 <span class="symbol">°</span>C</h4>
-                    <p> Cloudy </p>
+                    <h4 class="display-3">{{todayTemp}} <span class="symbol">°</span>C</h4>
+                    <!--<p> <b>{{todayMain}}</b> - {{todayDesc}}</p>-->
+                    <p> <b>{{todayDesc}}</b> </p>
                 </div>
+                <img :src="'http://openweathermap.org/img/wn/'+ todayIcon +'@2x.png'" v-bind:alt="todayMain"/>
             </div>
         </div>
         <div class="card-body p-0">
-                        <div class="d-flex weakly-weather">
-                            <div class="weakly-weather-item">
-                                <p class="mb-0"> Sun </p> <img src="http://openweathermap.org/img/wn/03d.png"/><i class="mdi mdi-weather-cloudy"></i>
-                                <p class="mb-0"> 30° </p>
-                            </div>
-                            <div class="weakly-weather-item">
-                                <p class="mb-1"> Mon </p> <img src="http://openweathermap.org/img/wn/10d.png"/><i class="mdi mdi-weather-hail"></i>
-                                <p class="mb-0"> 31° </p>
-                            </div>
-                            <div class="weakly-weather-item">
-                                <p class="mb-1"> Tue </p> <img src="http://openweathermap.org/img/wn/02d.png"/><i class="mdi mdi-weather-partlycloudy"></i>
-                                <p class="mb-0"> 28° </p>
-                            </div>
-                            <div class="weakly-weather-item">
-                                <p class="mb-1"> Wed </p> <img src="http://openweathermap.org/img/wn/09d.png"/><i class="mdi mdi-weather-pouring"></i>
-                                <p class="mb-0"> 30° </p>
-                            </div>
-                            <div class="weakly-weather-item">
-                                <p class="mb-1"> Thu </p> <img src="http://openweathermap.org/img/wn/09d.png"/><i class="mdi mdi-weather-pouring"></i>
-                                <p class="mb-0"> 29° </p>
-                            </div>
-                            <div class="weakly-weather-item">
-                                <p class="mb-1"> Fri </p> <img src="http://openweathermap.org/img/wn/13d.png"/><i class="mdi mdi-weather-snowy-rainy"></i>
-                                <p class="mb-0"> 31° </p>
-                            </div>
-                            <div class="weakly-weather-item">
-                                <p class="mb-1"> Sat </p> <img src="http://openweathermap.org/img/wn/13d.png"/><i class="mdi mdi-weather-snowy"></i>
-                                <p class="mb-0"> 32° </p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="d-flex weakly-weather">
+                <div v-for="day in orderedDays" :key="day.dt" class="weakly-weather-item">
+                    <p class="mb-1"> {{ getDay(new Date((day.dt + timezoneOffset) * 1000)) }} </p>
+                    <img :src="'http://openweathermap.org/img/wn/'+ day.weather[0].icon +'.png'" v-bind:alt="day.weather[0].main"/><i class="mdi mdi-weather-snowy"></i>
+                    <p class="mb-0"> {{ day.temp.day }}° </p>
                 </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 import _ from 'lodash';
+import axios from 'axios';
 
 /**
  * @description Widget that provides a welcome message for the managed resource, also provides a button to directly access editing the resources profile.
@@ -69,16 +49,54 @@ export default {
     data () {
         return {
             date: '',
-            dayLong: ''
+            dayLong: '',
+            coordinates: { lat: 0, lng: 0 },
+            addressObj: {
+                address_line_1: '',
+                address_line_2: '',
+                city: 'Paris',
+                state: '',
+                zip_code: '',
+                country: 'France'
+            },
+            todayTemp: '0',
+            todayMain: 'Loading...',
+            todayDesc: 'Loading...',
+            todayIcon: '02d',
+            todayWeather: '',
+            dailyWeather: [],
+            timezoneOffset: 0
         };
     },
     mounted () {
+        console.log(this.addressObj);
         var currentDate = new Date();
         this.dayLong = _.startCase(currentDate.toLocaleString(this.$i18n.locale, { weekday: 'long' }));
         this.date = _.startCase(currentDate.toLocaleString(this.$i18n.locale, { year: 'numeric', month: 'long', day: 'numeric' }));
+        axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=48.8314905&lon=2.3295866&appid=' + this.openWeatherMapKey() + '&exclude=hourly,minutely&units=metric&lang=' + this.$i18n.locale)
+            .then(result => {
+                console.log(result.data);
+                this.timezoneOffset = result.data.timezone_offset;
+                this.todayTemp = result.data.current.temp;
+                this.todayWeather = result.data.current.weather[0];
+                this.todayMain = _.startCase(result.data.current.weather[0].main);
+                this.todayDesc = _.capitalize(result.data.current.weather[0].description);
+                this.todayIcon = result.data.current.weather[0].icon;
+                this.dailyWeather = result.data.daily;
+            }, error => {
+                console.log(error);
+            });
     },
-    methods: {},
-    computed: {}
+    methods: {
+        getDay (date) {
+            return _.startCase(date.toLocaleString(this.$i18n.locale, { weekday: 'short' }));
+        }
+    },
+    computed: {
+        orderedDays: function () {
+            return (_.orderBy(this.dailyWeather, 'dt')).slice(1);
+        }
+    }
 };
 </script>
 
@@ -86,10 +104,6 @@ export default {
  .stretch-card>.card {
      width: 100%;
      min-width: 100%
- }
-
- body {
-     background-color: #f9f9fa
  }
 
  .flex {
@@ -142,8 +156,10 @@ export default {
  }
 
  .card-weather .card-body:first-child {
-     background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
-     background-size: cover
+     /* background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+     background-size: cover */
+     background-color: #4158D0;
+     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
  }
 
  .card .card-body {
@@ -160,44 +176,32 @@ export default {
  }
 
  .h3,
- h3 {
-     font-size: 1.56rem
+ h3,
+ .h4,
+ h4 {
+     font-size: 1.56rem;
+     font-family: "Poppins", sans-serif;
+     font-weight: 500;
+     color: #ffffff
  }
 
- .h1,
- .h2,
- .h3,
- .h4,
- .h5,
- .h6,
- h1,
- h2,
- h3,
- h4,
- h5,
- h6 {
-     font-family: "Poppins", sans-serif;
-     font-weight: 500
+ #appContentWrapper > div > div > div:nth-child(2) > div > div:nth-child(1) > div.weather-data.d-flex > div > p {
+     color: #ffffff
  }
 
  .text-gray,
  .card-subtitle,
  .new-accounts ul.chats li.chat-persons a p.joined-date {
-     color: #969696
+     color: #ffffff
  }
 
  p {
      font-size: 13px
  }
 
- .text-gray,
- .card-subtitle,
- .new-accounts ul.chats li.chat-persons a p.joined-date {
-     color: #969696
- }
-
  .card-weather .weather-data {
-     padding: 0 0 4.75rem
+     /* padding: 0 0 4.75rem */
+     padding: 0
  }
 
  .mr-auto,

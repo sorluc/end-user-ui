@@ -34,7 +34,7 @@ import Geocoder from '@pderas/vue2-geocoder';
 Vue.use(VueGeolocation);
 Vue.use(VueGoogleMaps, {
     load: {
-        key: '--AIzaSyDc4WfWqpQBfXZHBElPnisHI-SHrrKUNi8'
+        key: 'AIzaSyDc4WfWqpQBfXZHBElPnisHI-SHrrKUNi8'
     },
     installComponents: false
 });
@@ -44,7 +44,7 @@ Vue.use(Geocoder, {
     defaultCountryCode: 'FR',
     defaultLanguage: 'en',
     defaultMode: 'address',
-    googleMapsApiKey: '--AIzaSyB6LzPIttlZ5KBBjUIEoMy2T0z0Yx-EmAk'
+    googleMapsApiKey: 'AIzaSyB6LzPIttlZ5KBBjUIEoMy2T0z0Yx-EmAk'
 });
 
 // Turn off production warning messages
@@ -186,6 +186,9 @@ Vue.use(ToggleButton);
 // Global mixin for making openIDM REST calls
 Vue.mixin({
     methods: {
+        openWeatherMapKey: function () {
+            return '007dd23ccfcc95b248ee62d225797c02';
+        },
         // Get validation state for a form field
         getValidationState ({ dirty, validated, valid = null }) {
             return dirty || validated ? valid : null;
