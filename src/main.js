@@ -187,7 +187,7 @@ Vue.use(ToggleButton);
 Vue.mixin({
     methods: {
         openWeatherMapKey: function () {
-            return '007dd23ccfcc95b248ee62d225797c02';
+            return '--007dd23ccfcc95b248ee62d225797c02';
         },
         // Get validation state for a form field
         getValidationState ({ dirty, validated, valid = null }) {
